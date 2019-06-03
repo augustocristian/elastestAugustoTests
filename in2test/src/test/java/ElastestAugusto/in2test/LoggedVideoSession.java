@@ -3,6 +3,7 @@ package ElastestAugusto.in2test;
 
 import static java.lang.invoke.MethodHandles.lookup;
 import static java.util.logging.Level.ALL;
+import static com.fullteaching.e2e.no_elastest.common.Constants.*;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 import static org.openqa.selenium.remote.CapabilityType.LOGGING_PREFS;
 import static org.openqa.selenium.remote.DesiredCapabilities.chrome;
@@ -25,6 +26,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,12 +37,13 @@ import com.fullteaching.e2e.no_elastest.common.exception.BadUserException;
 import com.fullteaching.e2e.no_elastest.common.exception.ElementNotFoundException;
 import com.fullteaching.e2e.no_elastest.common.exception.NotLoggedException;
 import com.fullteaching.e2e.no_elastest.common.exception.TimeOutExeception;
+
 import com.fullteaching.e2e.no_elastest.utils.Click;
 import com.fullteaching.e2e.no_elastest.utils.ParameterLoader;
 import com.fullteaching.e2e.no_elastest.utils.SetUp;
 import com.fullteaching.e2e.no_elastest.utils.UserLoader;
 import com.fullteaching.e2e.no_elastest.utils.Wait;
-import com.fullteaching.e2e.no_elastest.common.Constants.*;
+
 
 //import io.github.bonigarcia.seljup.DriverCapabilities;
 
@@ -99,7 +103,8 @@ public class LoggedVideoSession{
 	        
 	        teacher = teacher_data.split(":")[0];
 	        teacher_pass= teacher_data.split(":")[1];
-	        teacherDriver = UserLoader.allocateNewBrowser(teacher_data.split(":")[2]);
+	       
+	        teacherDriver =new ChromeDriver();
 	        
 	    	//check if logged with correct user
 	        teacherDriver = SetUp.loginUser(teacherDriver, host, teacher , teacher_pass);
@@ -120,7 +125,7 @@ public class LoggedVideoSession{
 	        	String userpass = students_data[i].split(":")[1];
 	        	studentPass.add(userpass);
 	        	
-	        	WebDriver studentD = UserLoader.allocateNewBrowser(students_data[i].split(":")[2]);
+	        	WebDriver studentD = new FirefoxDriver();
 	        	
 	        	studentD = SetUp.loginUser(studentD, host, userid , userpass);
 	        	studentD = UserUtilities.checkLogin(studentD, userid);
