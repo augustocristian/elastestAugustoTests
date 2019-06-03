@@ -39,8 +39,9 @@ import com.fullteaching.e2e.no_elastest.utils.ParameterLoader;
 import com.fullteaching.e2e.no_elastest.utils.SetUp;
 import com.fullteaching.e2e.no_elastest.utils.UserLoader;
 import com.fullteaching.e2e.no_elastest.utils.Wait;
+import com.fullteaching.e2e.no_elastest.common.Constants.*;
 
-import io.github.bonigarcia.seljup.DriverCapabilities;
+//import io.github.bonigarcia.seljup.DriverCapabilities;
 
 @Disabled
 public class LoggedVideoSession{
@@ -77,13 +78,13 @@ public class LoggedVideoSession{
 	private String sessionDate;
 	private String sessionHour;
 	
-	@DriverCapabilities
+/*	@DriverCapabilities
 	 DesiredCapabilities capabilities = chrome();
 	 {
 	        LoggingPreferences logPrefs = new LoggingPreferences();
 	        logPrefs.enable(BROWSER, ALL);
 	        capabilities.setCapability(LOGGING_PREFS, logPrefs);
-	    }
+	    }*/
 
 	@BeforeEach
 	public void setUp() throws BadUserException, ElementNotFoundException, NotLoggedException, TimeOutExeception {
