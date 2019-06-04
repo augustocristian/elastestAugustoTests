@@ -1,14 +1,12 @@
 package com.fullteaching.e2e.no_elastest.common;
 
 
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 public final class Constants {
 
-	public static final String LOCALHOST = "https://localhost:5000";
+	public static final String LOCALHOST = "https://localhost:5001";
 
 	public static final String COURSES_URL = "__HOST__/courses";
 	   

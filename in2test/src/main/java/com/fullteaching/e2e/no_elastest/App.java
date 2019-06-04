@@ -1,4 +1,4 @@
-package ElastestAugusto.in2test;
+package com.fullteaching.e2e.no_elastest;
 
 /**
  * Hello world!

@@ -1,4 +1,4 @@
-package ElastestAugusto.in2test;
+package com.fullteaching.e2e.no_elastest.functional.test.student;
 
 import com.fullteaching.e2e.no_elastest.common.BaseLoggedTest;
 import com.fullteaching.e2e.no_elastest.common.CourseNavigationUtilities;
@@ -10,13 +10,16 @@ import com.fullteaching.e2e.no_elastest.common.exception.TimeOutExeception;
 import com.fullteaching.e2e.no_elastest.utils.Click;
 import com.fullteaching.e2e.no_elastest.utils.ParameterLoader;
 import com.fullteaching.e2e.no_elastest.utils.Wait;
-
+import io.github.bonigarcia.seljup.DockerBrowser;
+import io.github.bonigarcia.seljup.SeleniumExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -25,10 +28,10 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static com.fullteaching.e2e.no_elastest.common.Constants.*;
-
+import static io.github.bonigarcia.seljup.BrowserType.CHROME;
 import static org.junit.jupiter.api.Assertions.fail;
 
-
+@ExtendWith(SeleniumExtension.class)
 public class CourseStudentTest extends BaseLoggedTest {
 	
 	public String roles;
@@ -41,9 +44,10 @@ public class CourseStudentTest extends BaseLoggedTest {
     
     @ParameterizedTest
 	@MethodSource("data")
-    public void studentCourseMainTest(String user, String password, String role, RemoteWebDriver rwd)throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
-
-		driver = rwd;
+    public void studentCourseMainTest(String user, String password, String role, WebDriver rwd)throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
+    	System.setProperty("webdriver.chrome.driver",
+    	           "C:/chromedriver_win32/chromedriver.exe");
+		driver = new ChromeDriver();
 		driver = loginAndValidate(driver,  user, password);
 
     	try {

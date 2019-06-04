@@ -13,10 +13,10 @@ import org.openqa.selenium.WebDriver;
 
 
 
-/*import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
-import static io.github.bonigarcia.wdm.DriverManagerType.*;*/
+import static io.github.bonigarcia.wdm.DriverManagerType.*;
 
 public class UserLoader {
 
@@ -97,7 +97,7 @@ public class UserLoader {
 		return users.values();
 	}
 	
-/*	public static WebDriver allocateNewBrowser(String browser) {
+	public static WebDriver allocateNewBrowser(String browser) {
 		WebDriver driver = null;
 		switch (browser){
 			case "chrome":
@@ -109,5 +109,5 @@ public class UserLoader {
 				//TODO: driver = FirefoxFactory.newWebDriver();
 		}
 		return driver;
-	}*/
+	}
 }
