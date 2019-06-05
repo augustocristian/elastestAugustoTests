@@ -44,6 +44,7 @@ public final class Constants {
     public static final String EDITCOURSE_MODAL_NAMEFIELD_ID = "input-put-course-name";
     public static final String EDITCOURSE_MODAL_SAVE_ID="submit-put-course-btn";
     public static final String EDITCOURSE_DELETE_CHECK_ID="label-delete-checkbox";
+    public static final String EDITCOURSE_DELETE_BUTTON_ID="delete-course-btn";
 
     public static final String COURSE_BACK_TO_DASHBOARD_CLASS = "btn-floating";
     public static final String COURSE_TABS_TAG = "tabs-course-details";
@@ -193,6 +194,7 @@ public final class Constants {
     //	public static final By COURSE_TABS = By.tagName(COURSE_TABS_TAG);
     public static final By COURSE_TABS = By.id(COURSE_TABS_TAG);
     public static final By EDITCOURSE_DELETE_CHECK = By.id(EDITCOURSE_DELETE_CHECK_ID);
+    public static final By EDITCOURSE_DELETE_BUTTON = By.id(EDITCOURSE_DELETE_BUTTON_ID);
     public static final By NEWCOURSE_MODAL_NAMEFIELD = By.id(NEWCOURSE_MODAL_NAMEFIELD_ID);
     public static final By FORUMENTRYLIST_ENTRYTITLE = By.className(FORUMENTRYLIST_ENTRYTITLE_CLASS);
     public static final By FORUMENTRYLIST_ENTRIESUL = By.className(FORUMENTRYLIST_ENTRIESUL_CLASS);

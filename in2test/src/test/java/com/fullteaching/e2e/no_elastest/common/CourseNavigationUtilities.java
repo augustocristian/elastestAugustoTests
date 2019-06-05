@@ -163,9 +163,13 @@ public class CourseNavigationUtilities {
 			//wait for edit modal
 			WebElement edit_modal = Wait.notTooMuch(wd).until(ExpectedConditions.visibilityOfElementLocated(EDITDELETE_MODAL));
 
-			//press delete
+			//Allow delete
 			WebElement delete_check = Wait.aLittle(wd).until(ExpectedConditions.visibilityOfElementLocated(EDITCOURSE_DELETE_CHECK));
 			wd = Click.element(wd, delete_check);
+			
+			//press delete
+			WebElement delete_button = Wait.aLittle(wd).until(ExpectedConditions.visibilityOfElementLocated(EDITCOURSE_DELETE_BUTTON));
+			wd = Click.element(wd, delete_button);
 
 			//save
 			wd = Click.element(wd, EDITCOURSE_MODAL_SAVE);
