@@ -300,9 +300,13 @@ public class CourseTeacherTest extends BaseLoggedTest {
     		editor = driver.findElement(By.className("ql-editor"));
     		editor.sendKeys("This is the normal content");
     		editor.sendKeys(NEWLINE);
+    		////*[@id="textEditorRowButtons"]/a[2]
+    		
     		
     		//preview? /html/body/app/div/main/app-course-details/div/div[4]/md-tab-group/div[2]/div[1]/div/div[2]/div/a[2]
-    		driver.findElement(By.xpath(EDITDESCRIPTION_PREVIEWBUTTON_XPATH)).click();
+    		//driver.findElement(By.xpath(EDITDESCRIPTION_PREVIEWBUTTON_XPATH)).click();
+    		driver.findElement(By.xpath("//*[@id=\"textEditorRowButtons\"]/a[2]")).click();
+    		
     		
     		WebElement preview = Wait.notTooMuch(driver).until(ExpectedConditions.visibilityOfElementLocated(By.className("ql-editor-custom")));
     		//chech heading
