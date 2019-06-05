@@ -11,6 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -70,6 +72,24 @@ public class BaseLoggedTest {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        
+        //Driver por defecto no contenerizado para depuracion
+        boolean chrome=true;
+    	if(chrome) {
+    	System.setProperty("webdriver.chrome.driver",
+    	           "C:/chromedriver_win32/chromedriver.exe");
+		driver = new ChromeDriver();}
+    	else {
+    		System.setProperty("webdriver.gecko.driver",
+     	           "C:/chromedriver_win32/geckodriver.exe");
+ 		driver = new FirefoxDriver();
+    		
+    		
+    	}
+    	driver.manage().window().maximize();
+    	
+    	//ELIMINAR?
+        
     }
 
     @AfterEach
@@ -88,6 +108,10 @@ public class BaseLoggedTest {
                     new Date(entry.getTimestamp()), entry.getLevel(),
                     entry.getMessage()));
         }
+        //TEMPORAL SOLUTION TO MULTIPLE WINDOWS CREATION
+        
+        driver.close();
+        
 
     }
 

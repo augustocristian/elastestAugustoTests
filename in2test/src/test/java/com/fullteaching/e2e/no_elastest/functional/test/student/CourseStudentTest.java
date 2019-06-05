@@ -20,8 +20,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,6 +31,7 @@ import java.util.stream.Stream;
 
 import static com.fullteaching.e2e.no_elastest.common.Constants.*;
 import static io.github.bonigarcia.seljup.BrowserType.CHROME;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @ExtendWith(SeleniumExtension.class)
@@ -45,9 +48,19 @@ public class CourseStudentTest extends BaseLoggedTest {
     @ParameterizedTest
 	@MethodSource("data")
     public void studentCourseMainTest(String user, String password, String role, WebDriver rwd)throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
+    	/*boolean chrome=true;
+    	if(chrome) {
     	System.setProperty("webdriver.chrome.driver",
     	           "C:/chromedriver_win32/chromedriver.exe");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver();}
+    	else {
+    		System.setProperty("webdriver.gecko.driver",
+     	           "C:/chromedriver_win32/geckodriver.exe");
+ 		driver = new FirefoxDriver();
+    		
+    		
+    	}
+    	driver.manage().window().maximize();*/
 		driver = loginAndValidate(driver,  user, password);
 
     	try {
@@ -63,7 +76,7 @@ public class CourseStudentTest extends BaseLoggedTest {
     			    	
 	    	driver = Click.element(driver, course_button);
 	    	
-	    	Wait.notTooMuch(driver).until(ExpectedConditions.visibilityOfElementLocated(By.id(TABS_DIV_ID)));
+	    	Wait.notTooMuch(driver).until(ExpectedConditions.visibilityOfElementLocated(By.id(COURSE_TABS_TAG)));
 	    	
     	}catch(Exception e) {
 			fail("Failed to load Courses Tabs"+ e.getClass()+ ": "+e.getLocalizedMessage());
@@ -71,10 +84,16 @@ public class CourseStudentTest extends BaseLoggedTest {
     	//Check tabs
     	//Home tab 
     	try {
+    
+    		//WebDriverWait wait = new WebDriverWait(driver, 10); 
+    		//wait.until(ExpectedConditions.presenceOfElementLocated(By.id(HOME_ICON_ID)));
+    	
     		driver = CourseNavigationUtilities.go2Tab(driver, HOME_ICON);
     		
+    		
+    		
     	} catch(Exception e) {
-    		fail("Failed to load home tab"+ e.getClass()+ ": "+e.getLocalizedMessage());
+    		fail("Failed to load home tab" + e.getClass() + ": "+e.getLocalizedMessage());
     	}
     	
     	try {
@@ -82,7 +101,7 @@ public class CourseStudentTest extends BaseLoggedTest {
     	} catch(Exception e) {
     		fail("Failed to load session tab"+ e.getClass()+ ": "+e.getLocalizedMessage());
     	}
-    	
+    
     	try {
     		driver = CourseNavigationUtilities.go2Tab(driver, FORUM_ICON);
     	} catch(Exception e) {
@@ -100,6 +119,9 @@ public class CourseStudentTest extends BaseLoggedTest {
     	} catch(Exception e) {
     		fail("Failed to load attenders tab"+ e.getClass()+ ": "+e.getLocalizedMessage());
     	}
+    	
+ 
+
     	
     }
     

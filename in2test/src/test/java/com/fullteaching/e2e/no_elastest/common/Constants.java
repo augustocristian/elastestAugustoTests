@@ -46,8 +46,12 @@ public final class Constants {
     public static final String EDITCOURSE_DELETE_CHECK_ID="label-delete-checkbox";
 
     public static final String COURSE_BACK_TO_DASHBOARD_CLASS = "btn-floating";
-        
-    public static final String COURSE_TABS_TAG = "mat-tab-group";
+    public static final String COURSE_TABS_TAG = "tabs-course-details";
+    
+    
+    //Its the original, i change because dont work
+    //public static final String COURSE_TABS_TAG = "md-tab-group";
+  
     
     /*FROM mat-tab-group*/
     public static final String HOMETAB_XPATH ="./div[1]/div[1]";
@@ -184,7 +188,10 @@ public final class Constants {
     
     public static final By COURSESDASHBOARD_TITLE = By.className(COURSESDASHBOARD_TITLE_CLASS);
     public static final By COURSELIST = By.className(COURSELIST_CLASS);
-    public static final By COURSE_TABS = By.tagName(COURSE_TABS_TAG);
+    
+    //Error puede ser el id aqui el viejo
+    //	public static final By COURSE_TABS = By.tagName(COURSE_TABS_TAG);
+    public static final By COURSE_TABS = By.id(COURSE_TABS_TAG);
     public static final By EDITCOURSE_DELETE_CHECK = By.id(EDITCOURSE_DELETE_CHECK_ID);
     public static final By NEWCOURSE_MODAL_NAMEFIELD = By.id(NEWCOURSE_MODAL_NAMEFIELD_ID);
     public static final By FORUMENTRYLIST_ENTRYTITLE = By.className(FORUMENTRYLIST_ENTRYTITLE_CLASS);
