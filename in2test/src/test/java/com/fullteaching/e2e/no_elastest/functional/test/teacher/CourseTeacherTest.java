@@ -52,7 +52,7 @@ public class CourseTeacherTest extends BaseLoggedTest {
 	@MethodSource("data")
     public void teacherCourseMainTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd) throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
 
-    driver = rwd;
+  //  driver = rwd;
 
 		String courseName = properties.getProperty("forum.test.course");
 
@@ -108,7 +108,7 @@ public class CourseTeacherTest extends BaseLoggedTest {
 	@MethodSource("data")
     public void teacherCreateAndDeleteCourseTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd) throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
 
-    	driver = rwd;
+//    	driver = rwd;
 
 		String courseName = properties.getProperty("forum.test.course");
 
@@ -188,7 +188,7 @@ public class CourseTeacherTest extends BaseLoggedTest {
 	@MethodSource("data")
     public void teacherEditCourseValues(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd) throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
 
-		driver = rwd;
+	//	driver = rwd;
 
 		String courseName = properties.getProperty("forum.test.course");
       
@@ -404,7 +404,7 @@ public class CourseTeacherTest extends BaseLoggedTest {
 	@MethodSource("data")
     public void teacherDeleteCourseTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd) throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
 
-		driver = rwd;
+	//	driver = rwd;
 
 		driver = loginAndValidate(driver,  user, password);
     	String courseName="";

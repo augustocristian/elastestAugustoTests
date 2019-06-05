@@ -36,7 +36,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SeleniumExtension.class)
 public class LoggedForumTest extends BaseLoggedTest {
-	protected static WebDriver driver;
+	//We comment this because we instantiate it in the SetUp
+	//protected static WebDriver driver;
 	
 	protected String courseName="Pseudoscientific course for treating the evil eye";
 
@@ -48,7 +49,7 @@ public class LoggedForumTest extends BaseLoggedTest {
 	  @MethodSource("data")
     public void forumLoadEntriesTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd)  throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
 
-		driver = rwd;
+		//driver = rwd;
 		
 	 	String courseName = properties.getProperty("forum.test.course");
 
@@ -114,7 +115,7 @@ public class LoggedForumTest extends BaseLoggedTest {
 	@MethodSource("data")
     public void forumNewEntryTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd)  throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
 
-		driver = rwd;
+	//	driver = rwd;
 
 		driver = loginAndValidate(driver,  user, password);
 
@@ -174,7 +175,7 @@ public class LoggedForumTest extends BaseLoggedTest {
 	@MethodSource("data")
     public void forumNewCommentTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd)  throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
 
-		driver = rwd;
+	//	driver = rwd;
 
 		driver = loginAndValidate(driver,  user, password);
 
@@ -250,7 +251,7 @@ public class LoggedForumTest extends BaseLoggedTest {
 	@ParameterizedTest
 	@MethodSource("data")
     public void forumNewReply2CommentTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd)  throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
-		driver = rwd;
+	//	driver = rwd;
 
 		driver = loginAndValidate(driver,  user, password);
 

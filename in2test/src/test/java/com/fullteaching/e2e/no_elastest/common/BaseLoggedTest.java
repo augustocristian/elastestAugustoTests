@@ -36,9 +36,11 @@ public class BaseLoggedTest {
 
     //protected common attributes
     protected static final String BROWSER_VERSION_LATEST = "latest";
-
-    protected static final String host= SetUp.getHost();
-
+// For use another host
+    //protected static final String host= SetUp.getHost();
+    
+    protected static final String host= "https://localhost:5001";
+    
     protected static String userName;
     protected static String user;
     protected static String password;
@@ -83,10 +85,14 @@ public class BaseLoggedTest {
     		System.setProperty("webdriver.gecko.driver",
      	           "C:/chromedriver_win32/geckodriver.exe");
  		driver = new FirefoxDriver();
+ 		driver.navigate().to(host) ;
     		
     		
     	}
     	driver.manage().window().maximize();
+    	//driver.navigate().to(host);
+
+    	// driver.get(host);
     	
     	//ELIMINAR?
         

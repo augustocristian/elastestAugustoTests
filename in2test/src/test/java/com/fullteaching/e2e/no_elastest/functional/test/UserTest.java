@@ -36,7 +36,7 @@ public class UserTest extends BaseLoggedTest {
 	@MethodSource("data")
 	public void loginTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd) throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
 
-		driver = rwd;
+	//	driver = rwd;
 
 		try {
 			driver = UserUtilities.login(driver, user, password, host);
