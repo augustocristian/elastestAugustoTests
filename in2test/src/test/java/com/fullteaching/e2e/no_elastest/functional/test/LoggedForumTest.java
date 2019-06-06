@@ -163,7 +163,9 @@ public class LoggedForumTest extends BaseLoggedTest {
 	    	
 	    	WebElement newComment = comments.get(0);
 	    	assertEquals(newComment.findElement(FORUMCOMMENTLIST_COMMENT_CONTENT).getText(),newEntryContent,"Bad content of comment");
-	    	assertEquals(newComment.findElement(FORUMCOMMENTLIST_COMMENT_USER).getText(),userName,"Bad user in comment");
+	    	
+	    	String comentario =newComment.findElement(FORUMCOMMENTLIST_COMMENT_USER).getText();
+	    	assertEquals(comentario,userName,"Bad user in comment");
 	    	
     	}catch(ElementNotFoundException enfe) {
     		fail("Failed to navigate to course forum:: "+ enfe.getClass()+ ": "+enfe.getLocalizedMessage());
@@ -306,19 +308,24 @@ public class LoggedForumTest extends BaseLoggedTest {
 			WebElement textField = driver.findElement(FORUMCOMMENTLIST_MODAL_NEWREPLY_TEXTFIELD);
 			textField.sendKeys(newReplyContent);
 			driver = Click.element(driver, FORUM_NEWCOMMENT_MODAL_POSTBUTTON);
+	
 			commentList = Wait.notTooMuch(driver).until(ExpectedConditions.visibilityOfElementLocated(FORUMCOMMENTLIST));
 			comments = ForumNavigationUtilities.getComments(driver);
 
 			//getComment replies 
-			List <WebElement> replies = ForumNavigationUtilities.getReplies(driver,comments.get(0)); 
+			List <WebElement> replies = ForumNavigationUtilities.getReplies(driver,comments.get(0)); //ESTAMOS
+			
 			WebElement newReply = null;
 			for(WebElement reply: replies) {
-				if(reply.findElement(FORUMCOMMENTLIST_COMMENT_CONTENT).getText().equals(newReplyContent))
+				String text=reply.findElement(FORUMCOMMENTLIST_COMMENT_CONTENT).getText();
+				
+				if(text.equals(newReplyContent))
 					newReply= reply;				
 			}
 			//assert reply
 			assertNotNull(newReply,"Reply not found");
-	    	assertEquals(newReply.findElement(FORUMCOMMENTLIST_COMMENT_USER).getText(),userName,"Bad user in comment");
+			boolean asserto=newReply.findElement(FORUMCOMMENTLIST_COMMENT_USER).getText().equals(userName);
+	    	assertTrue(asserto,"Bad user in comment");
 	    	
 			//nested reply
 	    	
