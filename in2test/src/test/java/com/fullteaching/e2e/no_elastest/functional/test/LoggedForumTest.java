@@ -44,7 +44,11 @@ public class LoggedForumTest extends BaseLoggedTest {
 	public static Stream<Arguments> data() throws IOException {
 		return ParameterLoader.getTestUsers();
 	}
-
+    /**
+     * This test get login and checks if there are any courses and go to the 
+     * Pseudo... course forum.In this forum checks
+     * if there are
+     */ 
     @ParameterizedTest
 	  @MethodSource("data")
     public void forumLoadEntriesTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd)  throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
@@ -87,6 +91,7 @@ public class LoggedForumTest extends BaseLoggedTest {
     	    				WebElement entry = ForumNavigationUtilities.getEntry(driver, entry_name);
     	    				driver = Click.element(driver, entry.findElement(FORUMENTRYLIST_ENTRYTITLE));
     	    				//Load comments
+    	    				
     	        	    	Wait.notTooMuch(driver).until(ExpectedConditions.visibilityOfElementLocated(FORUMCOMMENTLIST));
     	        	    	List<WebElement>comments = ForumNavigationUtilities.getComments(driver);
     	    				if(comments.size()>0) {
@@ -145,7 +150,7 @@ public class LoggedForumTest extends BaseLoggedTest {
 	    	assertEquals(ForumNavigationUtilities.isForumEnabled(CourseNavigationUtilities.getTabContent(driver,FORUM_ICON)), true, "Forum not activated");
 	    	
 	    	driver = ForumNavigationUtilities.newEntry(driver, newEntryTitle, newEntryContent);
-    		
+	       
 	    	//Check entry... 
 	    	WebElement newEntry = ForumNavigationUtilities.getEntry(driver, newEntryTitle);
 
@@ -154,6 +159,7 @@ public class LoggedForumTest extends BaseLoggedTest {
 	    	driver = Click.element(driver, newEntry.findElement(FORUMENTRYLIST_ENTRYTITLE));
 	    	Wait.notTooMuch(driver).until(ExpectedConditions.visibilityOfElementLocated(FORUMCOMMENTLIST));
 	    	WebElement entryTitleRow = driver.findElement(FORUMCOMMENTLIST_ENTRY_TITLE);
+	    	
 	    	assertEquals( entryTitleRow.getText().split("\n")[0], newEntryTitle,"Incorrect Entry Title");
 	    	assertEquals( entryTitleRow.findElement(FORUMCOMMENTLIST_ENTRY_USER).getText(), userName, "Incorrect User for Entry");
 	    	
@@ -163,8 +169,14 @@ public class LoggedForumTest extends BaseLoggedTest {
 	    	
 	    	WebElement newComment = comments.get(0);
 	    	assertEquals(newComment.findElement(FORUMCOMMENTLIST_COMMENT_CONTENT).getText(),newEntryContent,"Bad content of comment");
-	    	
+	    	try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	    	
 	    	String comentario =newComment.findElement(FORUMCOMMENTLIST_COMMENT_USER).getText();
+
 	    	assertEquals(comentario,userName,"Bad user in comment");
 	    	
     	}catch(ElementNotFoundException enfe) {
