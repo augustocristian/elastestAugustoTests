@@ -46,7 +46,7 @@ public class LoggedForumTest extends BaseLoggedTest {
 	}
     /**
      * This test get login and checks if there are any courses and go to the 
-     * Pseudo... course forum.In this forum checks
+     * Pseudo... course forum.In this forum looks for the
      * if there are
      */ 
     @ParameterizedTest

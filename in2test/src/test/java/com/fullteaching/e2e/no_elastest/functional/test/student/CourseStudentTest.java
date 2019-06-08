@@ -44,7 +44,12 @@ public class CourseStudentTest extends BaseLoggedTest {
         return ParameterLoader.getTestStudents();
     }
     
-    
+    /**
+     * This tests get the login the user as student, go the the courses  and check if 
+     * there is any course in the list.After it, click in the first course of the list 
+     * and wait for the visibility of it.In second place, the student go to the home,
+     * Session,Forum, Files and attenders tab to check if they are visible.
+     */ 
     @ParameterizedTest
 	@MethodSource("data")
     public void studentCourseMainTest(String user, String password, String role, WebDriver rwd)throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
