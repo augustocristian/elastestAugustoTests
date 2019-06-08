@@ -45,9 +45,12 @@ public class LoggedForumTest extends BaseLoggedTest {
 		return ParameterLoader.getTestUsers();
 	}
     /**
-     * This test get login and checks if there are any courses and go to the 
-     * Pseudo... course forum.In this forum looks for the
-     * if there are
+     * This test get login and navigate to the courses zone checking if there are 
+     * any courses. Second and go to the Pseudo... course accessing to the forum
+     *  and looks if its enable.If its enable, load all the entries and checks for 
+     *  someone that have comments on it.Finally, with the two previous conditions,
+     *  makes a assertequals to ensure that both are accomplisment
+     
      */ 
     @ParameterizedTest
 	  @MethodSource("data")
@@ -115,7 +118,13 @@ public class LoggedForumTest extends BaseLoggedTest {
     	
     	
     }
-
+    /**
+     * This test get login and create an custom title and content with the current date.
+     * After that, navigate to courses for access the forum section.In the forum creates
+     * a new entry with the previous created title and content. Secondly, we ensure that
+     * the entry was created correctly and ensures that there are only one comment that 
+     * correponds with the body of that entry. 
+     */ 
 	@ParameterizedTest
 	@MethodSource("data")
     public void forumNewEntryTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd)  throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
@@ -184,7 +193,15 @@ public class LoggedForumTest extends BaseLoggedTest {
     	}
     	
     }
-
+    /**
+     * This test get login and create an custom title and content with the current date.
+     * After that, navigate to courses for access the forum section.If in the forum
+     * there are not any entries create an new entry and gets into it.In the other hand
+     * if there are  any created previuously entry get into the first of them. Secondly,
+     * once we are into the entry, we looks for the new comment button, making a new comment
+     * in this entry with the custom content(the current date and hour).Finally, we iterate 
+     * over all comments looking for the comment that previously we create. 
+     */ 
 	@ParameterizedTest
 	@MethodSource("data")
     public void forumNewCommentTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd)  throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
@@ -261,7 +278,15 @@ public class LoggedForumTest extends BaseLoggedTest {
     	}
 
     }
-
+    /**
+     * This test get login and create like the previosly a custom content to make a comment
+     * We proceed navigate to the courses forum zone, and check if there are any entries.
+     * In the case that there are not entries, create a new entry and  replies to the 
+     * first comment of it ( the content of it).In the other hand if there are entries
+     * previously created, go to the first and replies to the same comment.After it, we check
+     * that the comment was correctly published.
+     * 
+     */ 
 	@ParameterizedTest
 	@MethodSource("data")
     public void forumNewReply2CommentTest(String user, String password, String role, @DockerBrowser(type = CHROME) RemoteWebDriver rwd)  throws ElementNotFoundException, BadUserException, NotLoggedException, TimeOutExeception {
