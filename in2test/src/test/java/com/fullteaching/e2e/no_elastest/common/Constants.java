@@ -117,8 +117,8 @@ public final class Constants {
     public static final String SESSIONLIST_NEWSESSION_MODAL_ID = "course-details-modal";
     public static final String SESSIONLIST_NEWSESSION_MODAL_TITLE_ID = "input-post-title";
     public static final String SESSIONLIST_NEWSESSION_MODAL_CONTENT_ID = "input-post-comment";
-    public static final String SESSIONLIST_NEWSESSION_MODAL_DATE_ID = "inputDate";
-    public static final String SESSIONLIST_NEWSESSION_MODAL_TIME_ID = "inputTime";
+    public static final String SESSIONLIST_NEWSESSION_MODAL_DATE_ID = "input-post-date";
+    public static final String SESSIONLIST_NEWSESSION_MODAL_TIME_ID = "input-post-time";
     public static final String SESSIONLIST_NEWSESSION_MODAL_POSTBUTTON_ID = "post-modal-btn";
     public static final String SESSIONLIST_SESSION_ROW_CLASS = "session-data";
     public static final String SESSIONLIST_SESSION_NAME_CLASS = "session-title";

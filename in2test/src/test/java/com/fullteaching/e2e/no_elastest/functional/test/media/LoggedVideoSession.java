@@ -105,6 +105,8 @@ public class LoggedVideoSession{
 	        teacher ="teacher@gmail.com";
 	        teacher_pass= "pass";
 	        teacherDriver = new ChromeDriver();
+	        courseName="Pseudoscientific course for treating the evil eye";
+	        teacherDriver.manage().window().maximize();
 	        
 	        /*ORIGINAL
 	         *  teacher = teacher_data.split(":")[0];
@@ -133,10 +135,12 @@ public class LoggedVideoSession{
 	        	
 	        	//WebDriver studentD = UserLoader.allocateNewBrowser(students_data[i].split(":")[2]);
 	        	WebDriver studentD = new ChromeDriver();
+	        	studentD.manage().window().maximize();
 	        	studentD = SetUp.loginUser(studentD, host, userid , userpass);
 	        	studentD = UserUtilities.checkLogin(studentD, userid);
 	        	studentNames.add(UserUtilities.getUserName(studentD, true, host));	        	
 	        	studentDriver.add(studentD);
+	        	
 	        }
 	        
 	    	/* Dedicated set up to Forum tests*/
