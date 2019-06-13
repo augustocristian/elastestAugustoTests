@@ -219,6 +219,12 @@ public class LoggedVideoSession{
 	    	modal.findElement(SESSIONLIST_NEWSESSION_MODAL_DATE).sendKeys(sessionDate);
 	    	modal.findElement(SESSIONLIST_NEWSESSION_MODAL_TIME).sendKeys(sessionHour);
 	    	teacherDriver = Click.element(teacherDriver, modal.findElement(SESSIONLIST_NEWSESSION_MODAL_POSTBUTTON));
+	    	try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}	
 	    	//teacherDriver = Click.element(teacherDriver, SESSIONLIST_NEWSESSION_MODAL_DATE);
 	    	//check if session has been created
 	    	List <String> session_titles = SessionNavigationUtilities.getFullSessionList(teacherDriver);
@@ -281,7 +287,12 @@ public class LoggedVideoSession{
     	//Students Leave Sessions
     	try {
     		for(WebDriver student_d: studentDriver) {
-		    			
+		    	try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
 		    	//student to: LEAVE SESSION.
     			student_d = Click.element(student_d, SESSION_LEFT_MENU_BUTTON);
 				
